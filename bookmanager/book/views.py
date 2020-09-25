@@ -4,5 +4,5 @@ from django.shortcuts import render
 from django.http import  HttpResponse
 
 def index(request):
-    context = {'title':'测试模板数据'}
-    return render(request,'book/index.html',context)
+   return HttpResponse('ok!')
+
