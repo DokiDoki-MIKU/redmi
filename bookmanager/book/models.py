@@ -1,6 +1,8 @@
 from django.db import models
 # Create your models here.
 # 准备书籍列表信息的模型类
+
+
 class BookInfo(models.Model):
     # 创建字段，字段类型...
     name = models.CharField(max_length=20, verbose_name='名称')
@@ -8,6 +10,8 @@ class BookInfo(models.Model):
     readcount = models.IntegerField(default=0, verbose_name='阅读量')
     commentcount = models.IntegerField(default=0, verbose_name='评论量')
     is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
+
+
 
     class Meta:
         db_table = 'bookinfo'  # 指明数据库表名
