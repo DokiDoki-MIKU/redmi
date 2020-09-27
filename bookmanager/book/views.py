@@ -73,14 +73,28 @@ def set_cookie(request):
    response.set_cookie('name',username)
    return response
 def get_cookie(requset):
-   return HttpResponse('get_cookie')
+   name = requset.COOKIES.get('name')
+   return HttpResponse(name)
 
 def response(request):
    return HttpResponse('itcast python',statu=400)
 
 
+def set_session(request):
+   username = request.GET.get('username')
+   user_id = 1
 
+   request.session['user_id']=user_id
+   request.session['username']=username
 
+   return HttpResponse('set_session')
+
+def get_session(requset):
+   user_id =requset.session.get('user_id')
+   username = requset.session.get('username')
+   content = "","{}".format(user_id,username)
+
+   return HttpResponse(content)
 
 
 
