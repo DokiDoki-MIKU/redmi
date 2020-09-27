@@ -1,7 +1,6 @@
 from django.urls import path
 from book.views import create_book,shop,register,json,method,response
-
-from django.urls import converters
+from book.views import set_cookie,get_cookie
 from django.urls.converters import register_converter
 
 class MobileConverter:
@@ -17,6 +16,8 @@ urlpatterns = [
     path('register/',register),
     path('json/',json),
     path('method/',method),
-    path('res/',response)
+    path('res/',response),
+    path('set_cookie/',set_cookie),
+    path('get_cookie/',get_cookie)
 ]
 

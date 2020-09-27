@@ -3,6 +3,7 @@ from django.http import  HttpResponse
 from book.models import BookInfo
 
 
+
 def create_book(request):
    books=BookInfo.objects.create(
       name='adc',
@@ -66,6 +67,16 @@ def response(request):
 
 
 
+def set_cookie(request):
+   username =request.GET.get("username")
+   response = HttpResponse('set_cookie')
+   response.set_cookie('name',username)
+   return response
+def get_cookie(requset):
+   return HttpResponse('get_cookie')
+
+def response(request):
+   return HttpResponse('itcast python',statu=400)
 
 
 
